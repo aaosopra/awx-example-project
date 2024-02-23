@@ -5,7 +5,7 @@
   connection: local
   tasks:
     - name: Install fortune
-      ansible.builtin.package:
+      ansible.builtin.apt:
         update_cache: true
         name: fortune-mod
         state: present
