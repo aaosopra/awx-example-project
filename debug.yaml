@@ -10,6 +10,7 @@
         name: fortune-mod
         state: present
       become: yes
+      become_method: su
 
     - name: Get quote
       ansible.builtin.shell: fortune -s
