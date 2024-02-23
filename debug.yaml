@@ -1,0 +1,19 @@
+---
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Install fortune
+      ansible.builtin.package:
+        update_cache: true
+        name: fortune-mod
+        state: present
+      become: yes
+
+    - name: Get quote
+      ansible.builtin.shell: fortune -s
+      register: quote
+
+    - name: Print some facts
+      ansible.builtin.debug:
+        msg: "{{ quote.stdout_lines | replace('\\t','')}}"
