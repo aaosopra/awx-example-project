@@ -4,6 +4,13 @@
   gather_facts: false
   connection: local
   tasks:
+    - name: Install fortune
+      ansible.builtin.apt:
+        update_cache: true
+        name: fortune-mod
+        state: present
+      become: yes
+      
     - name: Get quote
       ansible.builtin.shell: fortune -s
       register: quote
