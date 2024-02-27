@@ -11,7 +11,7 @@
       become: yes
       
     - name: Get quote
-      ansible.builtin.shell: fortune -s
+      ansible.builtin.shell: /usr/games/fortune -s
       register: quote
 
     - name: Print some facts
